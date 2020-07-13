@@ -39,6 +39,7 @@ userRouter.post('/',(req,res)=>{
 
 
 //delete
+//user
 userRouter.delete('/:id',(req,res)=>{
     User.findByIdAndDelete(req.params.id,err=>{
         if(err)

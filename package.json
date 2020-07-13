@@ -1,7 +1,7 @@
 {
   "name": "crud-mern",
   "version": "1.0.0",
-  "description": "",
+  "description": "crud",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,3 +23,5 @@
     "mongoose": "^5.9.23"
   }
 }
+
+

@@ -10,7 +10,7 @@ const UserTable = (props) => {
         <table className="table">
             <thead className="thead-dark">
                 <tr>
-                <th scope="col">User Id</th>
+                <th scope="col">UserId</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">College</th>
