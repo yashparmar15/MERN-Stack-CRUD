@@ -71,7 +71,7 @@ class App extends React.Component {
         }
         else{
             const data = await UserAPI.getUsers();
-            this.setState({message,users : data.response})
+            this.setState({message,users : data})
         }
         
     }
@@ -100,7 +100,7 @@ class App extends React.Component {
         }
         else{
             const data = await UserAPI.getUsers();
-            this.setState({message,users : data.response})
+            this.setState({message,users : data})
         }
         this.resetForm();
     }
