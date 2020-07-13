@@ -18,7 +18,7 @@ if(process.env.NODE_ENV === 'production'){
         res.sendFile(path.join(__dirname,'client','build','index.html'))
     });
 }
-const uri ='mongodb+srv://yash15700:password@cluster0.4glkw.mongodb.net/test2?retryWrites=true&w=majority';
+const uri ='mongodb+srv://yash15700:qwertyuiop@cluster0.4glkw.mongodb.net/test2?retryWrites=true&w=majority';
 mongoose.connect(uri,
 {
     useNewUrlParser:true,
