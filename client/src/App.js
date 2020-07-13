@@ -18,21 +18,26 @@ class App extends React.Component {
                 college : ""
             },
             message : ""
-        },
+        }
 
         this.deleteHandler = this.deleteHandler.bind(this);
         this.addHandler = this.addHandler.bind(this);
         this.updateHandler = this.updateHandler.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.showEditform = this.showEditform.bind(this);
+        this.s = this.s.bind(this);
     }
 
     componentDidMount(){
-        UserAPI.getUsers().then(data => {this.setState({users : data.response})})
+        UserAPI.getUsers().then(data => {
+            this.setState(
+                {users : data}
+            )
+            
+        }).catch(err => console.log(err));
     }
 
     resetForm (){
-        this.setState({
+        this.setState({ 
             user : {
                 firstName : "",
                 lastName : "",
@@ -51,7 +56,8 @@ class App extends React.Component {
         });
     }
 
-    showEditform(user){
+    s(user){
+        console.log(user);
         this.setState({
             isEditform : true, user : user
         });
@@ -67,6 +73,7 @@ class App extends React.Component {
             const data = await UserAPI.getUsers();
             this.setState({message,users : data.response})
         }
+        
     }
 
     async updateHandler(e){
@@ -78,7 +85,7 @@ class App extends React.Component {
         }
         else{
             const data = await UserAPI.getUsers();
-            this.setState({message,users : data.response})
+            this.setState({message,users : data})
         }
         this.setState({isEditform : false});
         this.resetForm();
@@ -99,14 +106,12 @@ class App extends React.Component {
     }
 
     renderUserTable(){
-        if(this.state.users.length > 0){
+
             return (
                 <UserTable users = {this.state.users}
                            deleteHandler = {this.deleteHandler}
-                           showEditform = {this.showEditform}/>
+                           s = {this.s}/>
             )
-        }
-        return null;
     }
 
     renderForm(){
@@ -145,3 +150,5 @@ class App extends React.Component {
         )
     }
 }
+
+export default App;

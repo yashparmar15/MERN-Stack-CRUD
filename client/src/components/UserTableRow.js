@@ -10,9 +10,9 @@ const UserTableRow = (props) => {
             <td>{college}</td>
             <td>{phone}</td>
             <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" onClick = {props.showEditForm.bind(this,props.user)} className="btn btn-secondary">Edit</button>
-                    <button type="button" onClick = {props.deleteHandler.bind(this,_id)} className="btn btn-danger">Delete</button>
+                <div className="btn-group" role="group" aria-label="Basic example">
+                <button type="button" onClick = {props.s.bind(this,props.user)} className="btn btn-secondary">Edit</button>
+                    <button type="button" onClick = {props.deleteHandler.bind(this,props.user._id)} className="btn btn-danger">Delete</button>
                 </div>
             </td>
         </tr>

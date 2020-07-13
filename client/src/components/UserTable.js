@@ -1,8 +1,18 @@
 import React from 'react';
 
-import UserTableRow from '.UserTableRow';
+import UserTableRow from './UserTableRow';
 
-const UserTable = (props) => {
+const UserTable = (props) => {  
+    let b = null;
+    if(props.users)
+    b = <tbody>
+    {props.users.map(user => {
+        return <UserTableRow key = {user._id}
+                             user = {user}
+                             deleteHandler = {props.deleteHandler}
+                             s = {props.s} />
+    })}
+</tbody>
     return(
         <table className="table">
             <thead className="thead-dark">
@@ -14,14 +24,8 @@ const UserTable = (props) => {
                 <th scope="col">Phone Number</th>
                 </tr>
             </thead>
-            <tbody>
-                {props.users.map(user => {
-                    return <UserTableRow key = {user._id}
-                                         user = {user}
-                                         deleteHandler = {props.deleteHandler}
-                                         showEditForm = {props.showEditForm} />
-                })}
-            </tbody>
+            
+            {b}
         </table>
     )
 }

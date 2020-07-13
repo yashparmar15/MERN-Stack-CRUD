@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const userRouter = express.Router();
 const User = require('../model/User');
 
@@ -6,25 +6,29 @@ const User = require('../model/User');
 
 userRouter.get('/',(req,res)=>{
     User.find({},(err,response)=>{
-        if(err)
+        if(err){
             res.status(500).json({message : {
                 msgBody : "Unable to get User",
                 msgError : true
             }});
-        else
+        } else {
             res.status(200).json(response);
+        }
     });
 });
 
 //create
-userRouter.post('/',(res,res)=>{
+userRouter.post('/',(req,res)=>{
     const user = new User(req.body);
+    console.log(req.body);
     user.save((err,document)=>{
-        if(err)
+        if(err){
+            console.log(err);
             res.status(500).json({message : {
                 msgBody : "Unable to add User",
                 msgError : true
             }});
+        }
         else
             res.status(200).json({message :{
                 msgBody : "Successfully Added User",
@@ -51,13 +55,14 @@ userRouter.delete('/:id',(req,res)=>{
 });
 
 //update
-userRouter.put(':id',(req,res)=>{
+userRouter.put('/:id',(req,res)=>{
     User.findByIdAndUpdate(req.params.id,req.body,{runValidators : true},(err,response)=>{
-        if(err)
+        if(err){
             res.status(500).json({message : {
                 msgBody : "Unable to Update User",
                 msgError : true
             }});
+        }
         else
             res.status(200).json({message :{
                 msgBody : "Successfully Updated User",

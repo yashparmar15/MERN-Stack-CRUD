@@ -3,7 +3,7 @@ import React from 'react';
 const Input = (props)=>{
     return(
         <>
-            <label for={props.name}>{props.labelName}</label>
+            <label>{props.labelName}</label>
             <input type="text" 
                 className="form-control" 
                 name = {props.name}

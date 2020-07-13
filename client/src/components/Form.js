@@ -28,7 +28,7 @@ const Form = (props) => {
                        value = {props.user.phone} />
             
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Submit</button>
         </form>
     )
 }
